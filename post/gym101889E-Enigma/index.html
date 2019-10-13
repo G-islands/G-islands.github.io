@@ -8,18 +8,23 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-<title>标签: combinatorics - G&#39;s Blog</title>
+<title>gym101889E Enigma - G&#39;s Blog</title>
 
 
-    <meta property="og:type" content="website">
-<meta property="og:title" content="G&#39;s Blog">
-<meta property="og:url" content="https://G-islands.github.io/tags/combinatorics/index.html">
+    <meta name="description" content="题目链接">
+<meta name="keywords" content="dp">
+<meta property="og:type" content="article">
+<meta property="og:title" content="gym101889E Enigma">
+<meta property="og:url" content="https://G-islands.github.io/post/gym101889E-Enigma/index.html">
 <meta property="og:site_name" content="G&#39;s Blog">
+<meta property="og:description" content="题目链接">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://g-islands.github.io/images/og_image.png">
+<meta property="og:image" content="https://g-islands.github.io/img/4.jpg">
+<meta property="og:updated_time" content="2019-10-13T14:46:12.304Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="G&#39;s Blog">
-<meta name="twitter:image" content="https://g-islands.github.io/images/og_image.png">
+<meta name="twitter:title" content="gym101889E Enigma">
+<meta name="twitter:description" content="题目链接">
+<meta name="twitter:image" content="https://g-islands.github.io/img/4.jpg">
 
 
 
@@ -80,13 +85,13 @@
 <link rel="stylesheet" href="/css/style.css">
 </head>
 
-<body class="is-3-column">
+<body class="is-2-column">
     <nav class="navbar navbar-main">
     <div class="container">
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/logo.svg" alt="G&#39;s Blog" height="28">
+                <img src="/images/logo.svg" alt="gym101889E Enigma" height="28">
             
             </a>
         </div>
@@ -114,6 +119,10 @@
             <div class="navbar-end">
                 
                 
+                <a class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;">
+                    <i class="fas fa-list-ul"></i>
+                </a>
+                
                 
                 <a class="navbar-item search" title="搜索" href="javascript:;">
                     <i class="fas fa-search"></i>
@@ -129,31 +138,20 @@
     <section class="section">
         <div class="container">
             <div class="columns">
-                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main"><div class="card">
-    <div class="card-content">
-        <nav class="breadcrumb" aria-label="breadcrumbs">
-        <ul>
-            <li><a href="/tags">标签</a></li>
-            <li class="is-active"><a href="#" aria-current="page">combinatorics</a></li>
-        </ul>
-        </nav>
-    </div>
-</div>
-
-    
+                <div class="column is-8-tablet is-9-desktop is-9-widescreen has-order-2 column-main">
 <div class="card">
     
     <div class="card-image">
-        <a href="/post/Codeforces-1228E-Another-Filling-the-Grid/" class="image is-7by1">
-            <img class="thumbnail" src="/img/1.jpg" alt="Codeforces 1228E Another Filling the Grid">
-        </a>
+        <span  class="image is-7by1">
+            <img class="thumbnail" src="/img/4.jpg" alt="gym101889E Enigma">
+        </span>
     </div>
     
     <div class="card-content article ">
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-10-10T11:39:56.000Z">2019-10-10</time>
+                <time class="level-item has-text-grey" datetime="2019-10-13T14:01:15.000Z">2019-10-13</time>
                 
                 <div class="level-item">
                 <a class="has-link-grey -link" href="/categories/solution/">solution</a>
@@ -163,7 +161,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    4 分钟 读完 (大约 612 个字)
+                    5 分钟 读完 (大约 702 个字)
                 </span>
                 
                 
@@ -172,21 +170,31 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <a class="has-link-black-ter" href="/post/Codeforces-1228E-Another-Filling-the-Grid/">Codeforces 1228E Another Filling the Grid</a>
+                gym101889E Enigma
             
         </h1>
         <div class="content">
-            <h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><p><a href="https://codeforces.com/contest/1228/problem/E" target="_blank" rel="noopener">题目链接</a><br>有一个$n\times n$的方格，需要在每个格子填入$1-k$的数字，要求每行和每列的数字最小值为1。求满足条件的方案有多少种。</p>
+            <p><a href="https://codeforces.com/gym/101889/attachments" target="_blank" rel="noopener">题目链接</a></p>
+<a id="more"></a>
+<h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><p>给出一个数字s，某些数位为？。一个整数n。在？的位置可以填上任意数字，保证结果不可以出现前导零，求最小的能被n整除的数字。不存在则输出*。</p>
+<h2 id="solution"><a href="#solution" class="headerlink" title="solution"></a>solution</h2><p><del>一开始想到正着dp，结果发现如果在dp转移的时候出现多个前驱状态都可以转移到当前点，就必须比较这些dp状态所对应的数字前缀的大小，复杂度就变为$O(n^3)$了，如果倒着dp那么比较大小只需要比较前一位，就优雅多了。没多想想别的做法就碰瓷，写代码越写越丑，导致时间不够来不及写正确做法。</del></p>
+<p>定义dp[i][j]表示从已经放置了数字的$i\sim n-1$位且放置了的部分模n等于j的数字（字符串形式），p为最高位数字的权值。这样就很简单了，当前这一位不为？时：<br>$$dp[i][(j+(s[i]-‘0’)*p)%n]=dp[i][j]+s[i]$$</p>
+<p>当这一位为？时就要枚举这一位放的数字</p>
+<p>$$dp[i][(j+k*p)%n]=dp[i][j]+char(k+’0’)$$<br>要注意当n=1时需要特判，且n=1，s=”?”时答案应该等于0，这是满足没有前导零的条件的。</p>
+<figure class="highlight c++ hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> <span class="hljs-built_in">std</span>;</span><br><span class="line"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> for0(i, n) for (int i = 0; i &lt; n; i++)</span></span><br><span class="line"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> for1(i, n) for (int i = 1; i &lt;= n; i++)</span></span><br><span class="line"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> dec0(i, n) for (int i = n - 1; i &gt;= 0; i--)</span></span><br><span class="line"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> dec1(i, n) for (int i = n; i &gt;= 1; i--)</span></span><br><span class="line"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> mem(a, val) memset(a, val, sizeof(a))</span></span><br><span class="line"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> IO                   \</span></span><br><span class="line">    ios::sync_with_stdio(<span class="hljs-number">0</span>); \</span><br><span class="line">    <span class="hljs-built_in">cin</span>.tie(<span class="hljs-number">0</span>);              \</span><br><span class="line">    <span class="hljs-built_in">cout</span>.tie(<span class="hljs-number">0</span>);</span><br><span class="line"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> ll long long</span></span><br><span class="line"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> db double</span></span><br><span class="line"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> ull unsigned long long</span></span><br><span class="line"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> pb push_back</span></span><br><span class="line"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> mp make_pair</span></span><br><span class="line"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> pii pair<span class="hljs-meta-string">&lt;int, int&gt;</span></span></span><br><span class="line"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> pll pair<span class="hljs-meta-string">&lt;ll, ll&gt;</span></span></span><br><span class="line"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> veci vector<span class="hljs-meta-string">&lt;int&gt;</span></span></span><br><span class="line"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> vecl vector<span class="hljs-meta-string">&lt;ll&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="hljs-built_in">string</span> dp[<span class="hljs-number">2</span>][<span class="hljs-number">1010</span>];</span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;</span><br><span class="line"><span class="hljs-meta">#<span class="hljs-meta-keyword">ifdef</span> LOCAL</span></span><br><span class="line">    freopen(<span class="hljs-string">"datain"</span>, <span class="hljs-string">"r"</span>, <span class="hljs-built_in">stdin</span>);</span><br><span class="line">    freopen(<span class="hljs-string">"out"</span>, <span class="hljs-string">"w"</span>, <span class="hljs-built_in">stdout</span>);</span><br><span class="line"><span class="hljs-meta">#<span class="hljs-meta-keyword">endif</span></span></span><br><span class="line">    IO;</span><br><span class="line">    <span class="hljs-built_in">string</span> s;</span><br><span class="line">    <span class="hljs-keyword">int</span> n;</span><br><span class="line">    <span class="hljs-built_in">cin</span> &gt;&gt; s &gt;&gt; n;</span><br><span class="line">    <span class="hljs-keyword">int</span> p = <span class="hljs-number">0</span>;</span><br><span class="line">    <span class="hljs-keyword">int</span> x = <span class="hljs-number">1</span>;</span><br><span class="line">    <span class="hljs-keyword">if</span> (n == <span class="hljs-number">1</span>) &#123;</span><br><span class="line">        <span class="hljs-keyword">if</span> (s == <span class="hljs-string">"?"</span>) &#123;</span><br><span class="line">            <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-number">0</span> &lt;&lt; <span class="hljs-built_in">endl</span>;</span><br><span class="line">            <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; s.length(); i++) &#123;</span><br><span class="line">            <span class="hljs-keyword">if</span> (s[i] == <span class="hljs-string">'?'</span>) &#123;</span><br><span class="line">                <span class="hljs-keyword">if</span> (i != <span class="hljs-number">0</span>)</span><br><span class="line">                    s[i] = <span class="hljs-string">'0'</span>;</span><br><span class="line">                <span class="hljs-keyword">else</span></span><br><span class="line">                    s[i] = <span class="hljs-string">'1'</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="hljs-built_in">cout</span> &lt;&lt; s &lt;&lt; <span class="hljs-built_in">endl</span>;</span><br><span class="line">        <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = s.length() - <span class="hljs-number">1</span>; i &gt;= <span class="hljs-number">0</span>; i--) &#123;</span><br><span class="line">        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j = <span class="hljs-number">0</span>; j &lt; n; j++) dp[p][j] = <span class="hljs-string">""</span>;</span><br><span class="line">        <span class="hljs-keyword">if</span> (i == s.length() - <span class="hljs-number">1</span>) &#123;</span><br><span class="line">            <span class="hljs-keyword">if</span> (s[i] == <span class="hljs-string">'?'</span>) &#123;</span><br><span class="line">                <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> k = <span class="hljs-number">0</span>; k &lt; <span class="hljs-number">10</span>; k++) &#123;</span><br><span class="line">                    <span class="hljs-keyword">if</span> (k == <span class="hljs-number">0</span> &amp;&amp; i == <span class="hljs-number">0</span>) <span class="hljs-keyword">continue</span>;</span><br><span class="line">                    <span class="hljs-keyword">if</span> (dp[p][k % n] == <span class="hljs-string">""</span>) dp[p][k % n] += <span class="hljs-keyword">char</span>(k + <span class="hljs-string">'0'</span>);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125; <span class="hljs-keyword">else</span> &#123;</span><br><span class="line">                dp[p][(s[i] - <span class="hljs-string">'0'</span>) % n] += s[i];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="hljs-keyword">else</span> &#123;</span><br><span class="line">            <span class="hljs-keyword">if</span> (s[i] == <span class="hljs-string">'?'</span>) &#123;</span><br><span class="line">                <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j = <span class="hljs-number">0</span>; j &lt; n; j++) &#123;</span><br><span class="line">                    <span class="hljs-keyword">if</span> (dp[(p + <span class="hljs-number">1</span>) % <span class="hljs-number">2</span>][j] == <span class="hljs-string">""</span>) <span class="hljs-keyword">continue</span>;</span><br><span class="line">                    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> k = <span class="hljs-number">0</span>; k &lt; <span class="hljs-number">10</span>; k++) &#123;</span><br><span class="line">                        <span class="hljs-keyword">if</span> (i == <span class="hljs-number">0</span> &amp;&amp; k == <span class="hljs-number">0</span>) <span class="hljs-keyword">continue</span>;</span><br><span class="line">                        <span class="hljs-keyword">if</span> (dp[p][(j + k * x) % n] != <span class="hljs-string">""</span>) &#123;</span><br><span class="line">                            <span class="hljs-keyword">if</span> (dp[p][(j + k * x) % n].back() &gt; <span class="hljs-keyword">char</span>(k + <span class="hljs-string">'0'</span>)) &#123;</span><br><span class="line">                                dp[p][(j + k * x) % n] =</span><br><span class="line">                                    dp[(p + <span class="hljs-number">1</span>) % <span class="hljs-number">2</span>][j] + <span class="hljs-keyword">char</span>(k + <span class="hljs-string">'0'</span>);</span><br><span class="line">                            &#125;</span><br><span class="line">                        &#125; <span class="hljs-keyword">else</span> &#123;</span><br><span class="line">                            dp[p][(j + k * x) % n] =</span><br><span class="line">                                dp[(p + <span class="hljs-number">1</span>) % <span class="hljs-number">2</span>][j] + <span class="hljs-keyword">char</span>(k + <span class="hljs-string">'0'</span>);</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125; <span class="hljs-keyword">else</span> &#123;</span><br><span class="line">                <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j = <span class="hljs-number">0</span>; j &lt; n; j++) &#123;</span><br><span class="line">                    <span class="hljs-keyword">if</span> (dp[(p + <span class="hljs-number">1</span>) % <span class="hljs-number">2</span>][j] == <span class="hljs-string">""</span>) <span class="hljs-keyword">continue</span>;</span><br><span class="line">                    <span class="hljs-keyword">if</span> (dp[p][(j + (s[i] - <span class="hljs-string">'0'</span>) * x) % n] != <span class="hljs-string">""</span>) &#123;</span><br><span class="line">                        dp[p][(j + (s[i] - <span class="hljs-string">'0'</span>) * x) % n] =</span><br><span class="line">                            dp[(p + <span class="hljs-number">1</span>) % <span class="hljs-number">2</span>][j] + s[i];</span><br><span class="line">                    &#125; <span class="hljs-keyword">else</span> &#123;</span><br><span class="line">                        dp[p][(j + (s[i] - <span class="hljs-string">'0'</span>) * x) % n] =</span><br><span class="line">                            dp[(p + <span class="hljs-number">1</span>) % <span class="hljs-number">2</span>][j] + s[i];</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        p = (p + <span class="hljs-number">1</span>) % <span class="hljs-number">2</span>;</span><br><span class="line">        x *= <span class="hljs-number">10</span>;</span><br><span class="line">        x %= n;</span><br><span class="line">    &#125;</span><br><span class="line">    p = (p + <span class="hljs-number">1</span>) % <span class="hljs-number">2</span>;</span><br><span class="line">    <span class="hljs-keyword">if</span> (dp[p][<span class="hljs-number">0</span>].length() == s.length()) &#123;</span><br><span class="line">        reverse(dp[p][<span class="hljs-number">0</span>].begin(), dp[p][<span class="hljs-number">0</span>].end());</span><br><span class="line">        <span class="hljs-built_in">cout</span> &lt;&lt; dp[p][<span class="hljs-number">0</span>] &lt;&lt; <span class="hljs-built_in">endl</span>;</span><br><span class="line">    &#125; <span class="hljs-keyword">else</span></span><br><span class="line">        <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">"*"</span> &lt;&lt; <span class="hljs-built_in">endl</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
         </div>
         
-        
-        <div class="level is-mobile">
+        <div class="level is-size-7 is-uppercase">
             <div class="level-start">
                 <div class="level-item">
-                <a class="button is-size-7 is-light" href="/post/Codeforces-1228E-Another-Filling-the-Grid/#more">阅读更多</a>
+                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
+                    <a class="has-link-grey -link" href="/tags/dp/">dp</a>
                 </div>
             </div>
         </div>
+        
         
         
     </div>
@@ -196,7 +204,26 @@
 
 
 
-
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        <div class="level-start">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/post/gym101889J-Jumping-frog/">
+                <i class="level-item fas fa-chevron-left"></i>
+                <span class="level-item">gym101889J Jumping frog</span>
+            </a>
+        </div>
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/post/icarus主题配置/">
+                <span class="level-item">icarus主题配置</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
 
 
 </div>
@@ -208,7 +235,7 @@
 
 
 <div
-    class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-1 column-left is-sticky">
+    class="column is-4-tablet is-3-desktop is-3-widescreen  has-order-1 column-left is-sticky">
     
     
 <div class="card widget">
@@ -341,12 +368,30 @@
 
     
     
+<div class="card widget" id="toc">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                目录
+            </h3>
+            <ul class="menu-list"><li>
+        <a class="is-flex" href="#题意">
+        <span class="has-mr-6">1</span>
+        <span>题意</span>
+        </a></li><li>
+        <a class="is-flex" href="#solution">
+        <span class="has-mr-6">2</span>
+        <span>solution</span>
+        </a></li></ul>
+        </div>
+    </div>
+</div>
     
     
     <!-- <div class="column-right-shadow is-hidden-widescreen is-sticky"> -->
     <!-- post右侧不显示侧边栏 -->
     <div
-        class="column-right-shadow is-hidden-widescreen is-sticky">
+        class="column-right-shadow  is-sticky">
         <!-- ----- -->
         
         <div class="card widget">
@@ -564,230 +609,6 @@
                 <!-- ------新添加---- -->
                 
                 <!-- ------ -->
-                
-<!--  -->
-
-<!-- -----------------分界线 -->
-
-
-
-<div
-    class="column is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only has-order-3 column-right is-sticky">
-    
-    <div class="card widget">
-    <div class="card-content">
-        <div class="menu">
-            <h3 class="menu-label">
-                标签
-            </h3>
-            <div class="field is-grouped is-grouped-multiline">
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/combinatorics/">
-                        <span class="tag">combinatorics</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/dp/">
-                        <span class="tag">dp</span>
-                        <span class="tag is-grey">2</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/greedy/">
-                        <span class="tag">greedy</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/math/">
-                        <span class="tag">math</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-            </div>
-        </div>
-    </div>
-</div>
-    
-    
-<div class="card widget">
-    <div class="card-content">
-        <div class="menu">
-            <h3 class="menu-label">
-                分类
-            </h3>
-            <ul class="menu-list">
-            <li>
-        <a class="level is-marginless" href="/categories/others/">
-            <span class="level-start">
-                <span class="level-item">others</span>
-            </span>
-            <span class="level-end">
-                <span class="level-item tag">1</span>
-            </span>
-        </a></li><li>
-        <a class="level is-marginless" href="/categories/solution/">
-            <span class="level-start">
-                <span class="level-item">solution</span>
-            </span>
-            <span class="level-end">
-                <span class="level-item tag">4</span>
-            </span>
-        </a></li>
-            </ul>
-        </div>
-    </div>
-</div>
-    
-    <div class="card widget">
-    <div class="card-content">
-        <h3 class="menu-label">
-            标签云
-        </h3>
-        <a href="/tags/combinatorics/" style="font-size: 10px;">combinatorics</a> <a href="/tags/dp/" style="font-size: 20px;">dp</a> <a href="/tags/greedy/" style="font-size: 10px;">greedy</a> <a href="/tags/math/" style="font-size: 10px;">math</a>
-    </div>
-</div>
-    
-    <div class="card widget">
-    <div class="card-content">
-        <h3 class="menu-label">
-            最新文章
-        </h3>
-        
-        <article class="media">
-            
-            <a href="/post/gym101889J-Jumping-frog/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/img/5.jpg" alt="gym101889J Jumping frog">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-10-13T14:21:47.000Z">2019-10-13</time></div>
-                    <a href="/post/gym101889J-Jumping-frog/" class="title has-link-black-ter is-size-6 has-text-weight-normal">gym101889J Jumping frog</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/solution/">solution</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <a href="/post/gym101889E-Enigma/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/img/4.jpg" alt="gym101889E Enigma">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-10-13T14:01:15.000Z">2019-10-13</time></div>
-                    <a href="/post/gym101889E-Enigma/" class="title has-link-black-ter is-size-6 has-text-weight-normal">gym101889E Enigma</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/solution/">solution</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <a href="/post/icarus主题配置/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/img/3.jpg" alt="icarus主题配置">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-10-12T12:23:43.000Z">2019-10-12</time></div>
-                    <a href="/post/icarus主题配置/" class="title has-link-black-ter is-size-6 has-text-weight-normal">icarus主题配置</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/others/">others</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <a href="/post/Codeforces-1228E-Another-Filling-the-Grid/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/img/1.jpg" alt="Codeforces 1228E Another Filling the Grid">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-10-10T11:39:56.000Z">2019-10-10</time></div>
-                    <a href="/post/Codeforces-1228E-Another-Filling-the-Grid/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Codeforces 1228E Another Filling the Grid</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/solution/">solution</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <a href="/post/2016-ccpc-final-B-Wash/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/img/2.jpg" alt="2016 ccpc final B Wash">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-10-03T06:06:06.000Z">2019-10-03</time></div>
-                    <a href="/post/2016-ccpc-final-B-Wash/" class="title has-link-black-ter is-size-6 has-text-weight-normal">2016 ccpc final B Wash</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/solution/">solution</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-    </div>
-</div>
-    
-    <div class="card widget">
-    <div class="card-content">
-        <div class="menu">
-        <h3 class="menu-label">
-            归档
-        </h3>
-        <ul class="menu-list">
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2019/10/">
-                <span class="level-start">
-                    <span class="level-item">十月 2019</span>
-                </span>
-                <span class="level-end">
-                    <span class="level-item tag">5</span>
-                </span>
-            </a>
-        </li>
-        
-        </ul>
-        </div>
-    </div>
-</div>
-    
-    
-</div>
-
-                <!-- ------新添加---- -->
-                
-                <!-- ------ -->
             </div>
         </div>
     </section>
@@ -797,7 +618,7 @@
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/logo.svg" alt="G&#39;s Blog" height="28">
+                    <img src="/images/logo.svg" alt="gym101889E Enigma" height="28">
                 
                 </a>
                 <p class="is-size-7">
