@@ -8,23 +8,18 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-<title>Codeforces 1228E Another Filling the Grid - G&#39;s Blog</title>
+<title>标签: divide and conquer - G&#39;s Blog</title>
 
 
-    <meta name="description" content="题意题目链接有一个$n\times n$的方格，需要在每个格子填入$1-k$的数字，要求每行和每列的数字最小值为1。求满足条件的方案有多少种。">
-<meta name="keywords" content="dp,combinatorics">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Codeforces 1228E Another Filling the Grid">
-<meta property="og:url" content="https://G-islands.github.io/post/Codeforces-1228E-Another-Filling-the-Grid/index.html">
+    <meta property="og:type" content="website">
+<meta property="og:title" content="G&#39;s Blog">
+<meta property="og:url" content="https://G-islands.github.io/tags/divide-and-conquer/index.html">
 <meta property="og:site_name" content="G&#39;s Blog">
-<meta property="og:description" content="题意题目链接有一个$n\times n$的方格，需要在每个格子填入$1-k$的数字，要求每行和每列的数字最小值为1。求满足条件的方案有多少种。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://g-islands.github.io/img/1.jpg">
-<meta property="og:updated_time" content="2019-10-13T14:22:03.152Z">
+<meta property="og:image" content="https://g-islands.github.io/images/og_image.png">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Codeforces 1228E Another Filling the Grid">
-<meta name="twitter:description" content="题意题目链接有一个$n\times n$的方格，需要在每个格子填入$1-k$的数字，要求每行和每列的数字最小值为1。求满足条件的方案有多少种。">
-<meta name="twitter:image" content="https://g-islands.github.io/img/1.jpg">
+<meta name="twitter:title" content="G&#39;s Blog">
+<meta name="twitter:image" content="https://g-islands.github.io/images/og_image.png">
 
 
 
@@ -85,13 +80,13 @@
 <link rel="stylesheet" href="/css/style.css">
 </head>
 
-<body class="is-2-column">
+<body class="is-3-column">
     <nav class="navbar navbar-main">
     <div class="container">
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/logo.svg" alt="Codeforces 1228E Another Filling the Grid" height="28">
+                <img src="/images/logo.svg" alt="G&#39;s Blog" height="28">
             
             </a>
         </div>
@@ -119,10 +114,6 @@
             <div class="navbar-end">
                 
                 
-                <a class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;">
-                    <i class="fas fa-list-ul"></i>
-                </a>
-                
                 
                 <a class="navbar-item search" title="搜索" href="javascript:;">
                     <i class="fas fa-search"></i>
@@ -138,20 +129,31 @@
     <section class="section">
         <div class="container">
             <div class="columns">
-                <div class="column is-8-tablet is-9-desktop is-9-widescreen has-order-2 column-main">
+                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main"><div class="card">
+    <div class="card-content">
+        <nav class="breadcrumb" aria-label="breadcrumbs">
+        <ul>
+            <li><a href="/tags">标签</a></li>
+            <li class="is-active"><a href="#" aria-current="page">divide and conquer</a></li>
+        </ul>
+        </nav>
+    </div>
+</div>
+
+    
 <div class="card">
     
     <div class="card-image">
-        <span  class="image is-7by1">
-            <img class="thumbnail" src="/img/1.jpg" alt="Codeforces 1228E Another Filling the Grid">
-        </span>
+        <a href="/post/Codeforces-1237-C2-Balanced-Removals/" class="image is-7by1">
+            <img class="thumbnail" src="/img/6.png" alt="Codeforces 1237 C2 Balanced Removals">
+        </a>
     </div>
     
     <div class="card-content article ">
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-10-10T11:39:56.000Z">2019-10-10</time>
+                <time class="level-item has-text-grey" datetime="2019-10-23T12:56:26.000Z">2019-10-23</time>
                 
                 <div class="level-item">
                 <a class="has-link-grey -link" href="/categories/solution/">solution</a>
@@ -161,7 +163,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    4 分钟 读完 (大约 612 个字)
+                    4 分钟 读完 (大约 553 个字)
                 </span>
                 
                 
@@ -170,31 +172,23 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                Codeforces 1228E Another Filling the Grid
+                <a class="has-link-black-ter" href="/post/Codeforces-1237-C2-Balanced-Removals/">Codeforces 1237 C2 Balanced Removals</a>
             
         </h1>
         <div class="content">
-            <h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><p><a href="https://codeforces.com/contest/1228/problem/E" target="_blank" rel="noopener">题目链接</a><br>有一个$n\times n$的方格，需要在每个格子填入$1-k$的数字，要求每行和每列的数字最小值为1。求满足条件的方案有多少种。</p>
-<a id="more"></a>
-
-<h2 id="solution-1-DP"><a href="#solution-1-DP" class="headerlink" title="solution 1 DP"></a>solution 1 DP</h2><p>定义$dp(i,j)$表示已经填满了$i$行且$j$列都包含$1$的方案数。<br>首先，$dp(1,j)=k^j\cdot C(n,j)$ 。因为只有一行，其中的$j$列对应位置一定是$1$。<br>接下来考虑dp的转移。显然$dp(i,j)$需要从$dp(i-1,y)\ y&lt;j$转移得到。<br>当$y=j\ j=1$时，只有一列的位置可以填$1$，所以这个位置必须填$1$，否则不满足每行的最小值等于$1$。其余位置因为最小值不唯$1$，所以可以填大于$1$的任意数字，所以方案数等于$$dp(i-1,j)\cdot (k-1)^{n-j}$$<br>当$y=j\ j&gt;1$时，最小值等于$1$的若干列只要保证有一个$1$就可以满足这一行的最小值等于$1$，因此只考虑最小值等与$1$的列对$dp(i,j)$的贡献为$k^j-(k-1)^j$，其余的列同理取大于1的任意数字。所以$$dp(i,j)+=dp(i-1,j)\cdot (k^j-(k-1)^j)\cdot (k-1)^{n-j}$$<br>同时$dp(i,j)$还可以在$dp(i-1,y)$的基础上在一些新的列的位置填上$1$从而使最小值为$1$的列的数量变为$j$。因此：<br>当$y&lt;j$时，从最小值不为$1$的$n-y$列中选出$j-y$列让他们的最小值变为1，也就是在这一行的对应位置填上$1$，而原本最小值已经为$1$的列因为本行已经保证了有$1$从而使行的最小值等于1，因此这些列任取$[1,k]$的任何数。而其他的$n-j$列只能取$[2,k]$的数字。因此对$dp(i,j)$的贡献为$$dp(i,y)\cdot C(n-y,j-y)\cdot k^y\cdot (k-1)^{n-j}$$<br>预处理$k^i$和$(k-1)^i$，时间复杂度为$O(n^3)$。</p>
-<figure class="highlight c++ hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> <span class="hljs-built_in">std</span>;</span><br><span class="line"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> for0(i, n) for (int i = 0; i &lt; n; i++)</span></span><br><span class="line"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> for1(i, n) for (int i = 1; i &lt;= n; i++)</span></span><br><span class="line"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> dec0(i, n) for (int i = n - 1; i &gt;= 0; i--)</span></span><br><span class="line"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> dec1(i, n) for (int i = n; i &gt;= 1; i--)</span></span><br><span class="line"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> mem(a, val) memset(a, val, sizeof(a))</span></span><br><span class="line"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> IO                   \</span></span><br><span class="line">    ios::sync_with_stdio(<span class="hljs-number">0</span>); \</span><br><span class="line">    <span class="hljs-built_in">cin</span>.tie(<span class="hljs-number">0</span>);              \</span><br><span class="line">    <span class="hljs-built_in">cout</span>.tie(<span class="hljs-number">0</span>);</span><br><span class="line"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> ll long long</span></span><br><span class="line"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> db double</span></span><br><span class="line"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> ull unsigned long long</span></span><br><span class="line"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> pb push_back</span></span><br><span class="line"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> mp make_pair</span></span><br><span class="line"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> pii pair<span class="hljs-meta-string">&lt;int, int&gt;</span></span></span><br><span class="line"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> pll pair<span class="hljs-meta-string">&lt;ll, ll&gt;</span></span></span><br><span class="line"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> veci vector<span class="hljs-meta-string">&lt;int&gt;</span></span></span><br><span class="line"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> vecl vector<span class="hljs-meta-string">&lt;ll&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">const</span> ll mod = <span class="hljs-number">1e9</span> + <span class="hljs-number">7</span>;</span><br><span class="line"><span class="hljs-function">ll <span class="hljs-title">mypow</span><span class="hljs-params">(ll a, ll n, ll mod)</span> </span>&#123;</span><br><span class="line">    ll ans = <span class="hljs-number">1</span>;</span><br><span class="line">    <span class="hljs-keyword">while</span> (n) &#123;</span><br><span class="line">        <span class="hljs-keyword">if</span> (n &amp; <span class="hljs-number">1</span>) ans = ans * a % mod;</span><br><span class="line">        a = a * a % mod;</span><br><span class="line">        n &gt;&gt;= <span class="hljs-number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="hljs-keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line"><span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> N = <span class="hljs-number">250</span>;</span><br><span class="line">ll dp[<span class="hljs-number">300</span>][<span class="hljs-number">300</span>];</span><br><span class="line">ll A[<span class="hljs-number">300</span>], inv[<span class="hljs-number">300</span>];</span><br><span class="line">ll p1[<span class="hljs-number">300</span>], p[<span class="hljs-number">300</span>];</span><br><span class="line"><span class="hljs-function">ll <span class="hljs-title">C</span><span class="hljs-params">(ll n, ll m)</span> </span>&#123;</span><br><span class="line">    <span class="hljs-keyword">if</span> (n == m || m == <span class="hljs-number">0</span>) <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;</span><br><span class="line">    <span class="hljs-keyword">return</span> A[n] * inv[m] % mod * inv[n - m] % mod;</span><br><span class="line">&#125;</span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">init</span><span class="hljs-params">(<span class="hljs-keyword">int</span> k)</span> </span>&#123;</span><br><span class="line">    A[<span class="hljs-number">1</span>] = <span class="hljs-number">1</span>;</span><br><span class="line">    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">2</span>; i &lt;= N; i++) &#123;</span><br><span class="line">        A[i] = A[i - <span class="hljs-number">1</span>] * i % mod;</span><br><span class="line">    &#125;</span><br><span class="line">    inv[N] = mypow(A[N], mod - <span class="hljs-number">2</span>, mod);</span><br><span class="line">    dec1(i, N - <span class="hljs-number">1</span>) inv[i] = inv[i + <span class="hljs-number">1</span>] * (i + <span class="hljs-number">1</span>) % mod;</span><br><span class="line">    p1[<span class="hljs-number">0</span>] = p[<span class="hljs-number">0</span>] = <span class="hljs-number">1</span>;</span><br><span class="line">    for1(i, N) p1[i] = p1[i - <span class="hljs-number">1</span>] * (k - <span class="hljs-number">1</span>) % mod;</span><br><span class="line">    for1(i, N) p[i] = p[i - <span class="hljs-number">1</span>] * k % mod;</span><br><span class="line">&#125;</span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;</span><br><span class="line"><span class="hljs-meta">#<span class="hljs-meta-keyword">ifdef</span> LOCAL</span></span><br><span class="line">    freopen(<span class="hljs-string">"datain"</span>, <span class="hljs-string">"r"</span>, <span class="hljs-built_in">stdin</span>);</span><br><span class="line">    freopen(<span class="hljs-string">"out"</span>, <span class="hljs-string">"w"</span>, <span class="hljs-built_in">stdout</span>);</span><br><span class="line"><span class="hljs-meta">#<span class="hljs-meta-keyword">endif</span></span></span><br><span class="line">    IO;</span><br><span class="line">    <span class="hljs-keyword">int</span> n, k;</span><br><span class="line">    <span class="hljs-built_in">cin</span> &gt;&gt; n &gt;&gt; k;</span><br><span class="line">    init(k);</span><br><span class="line">    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; i++) &#123;</span><br><span class="line">        dp[<span class="hljs-number">1</span>][i] = p1[n - i] * C(n, i) % mod;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">2</span>; i &lt;= n; i++) &#123;</span><br><span class="line">        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j = <span class="hljs-number">1</span>; j &lt;= n; j++) &#123;</span><br><span class="line">            <span class="hljs-keyword">if</span> (j == <span class="hljs-number">1</span>)</span><br><span class="line">                dp[i][j] = dp[i - <span class="hljs-number">1</span>][j] * p1[n - j] % mod;</span><br><span class="line">            <span class="hljs-keyword">else</span></span><br><span class="line">                dp[i][j] =</span><br><span class="line">                    dp[i - <span class="hljs-number">1</span>][j] * (p[j] - p1[j] + mod) % mod * p1[n - j] % mod;</span><br><span class="line">            <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> kk = <span class="hljs-number">1</span>; kk &lt; j; kk++) &#123;</span><br><span class="line">                dp[i][j] += dp[i - <span class="hljs-number">1</span>][kk] * C(n - kk, j - kk) % mod * p[kk] %</span><br><span class="line">                            mod * p1[n - j] % mod;</span><br><span class="line">                dp[i][j] %= mod;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="hljs-built_in">cout</span> &lt;&lt; dp[n][n] &lt;&lt; <span class="hljs-built_in">endl</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="solution-2-容斥定理"><a href="#solution-2-容斥定理" class="headerlink" title="solution 2 容斥定理"></a>solution 2 容斥定理</h2><p>待补坑</p>
-
+            <h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><p><a href="https://codeforces.com/contest/1237/problem/C2" target="_blank" rel="noopener">题目链接</a><br>在三维空间中给出$n$个点，每次选取两个点消去，消去操作要满足以这两个点为对角的立方体内不能有其他点。求满足约束的消去点的顺序。</p>
         </div>
         
-        <div class="level is-size-7 is-uppercase">
+        
+        <div class="level is-mobile">
             <div class="level-start">
                 <div class="level-item">
-                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
-                    <a class="has-link-grey -link" href="/tags/combinatorics/">combinatorics</a>, <a class="has-link-grey -link" href="/tags/dp/">dp</a>
+                <a class="button is-size-7 is-light" href="/post/Codeforces-1237-C2-Balanced-Removals/#more">阅读更多</a>
                 </div>
             </div>
         </div>
         
         
-        
     </div>
 </div>
 
@@ -202,26 +196,7 @@
 
 
 
-<div class="card card-transparent">
-    <div class="level post-navigation is-flex-wrap is-mobile">
-        
-        <div class="level-start">
-            <a class="level level-item has-link-grey  article-nav-prev" href="/post/icarus主题配置/">
-                <i class="level-item fas fa-chevron-left"></i>
-                <span class="level-item">icarus主题配置</span>
-            </a>
-        </div>
-        
-        
-        <div class="level-end">
-            <a class="level level-item has-link-grey  article-nav-next" href="/post/2016-ccpc-final-B-Wash/">
-                <span class="level-item">2016 ccpc final B Wash</span>
-                <i class="level-item fas fa-chevron-right"></i>
-            </a>
-        </div>
-        
-    </div>
-</div>
+
 
 
 </div>
@@ -233,7 +208,7 @@
 
 
 <div
-    class="column is-4-tablet is-3-desktop is-3-widescreen  has-order-1 column-left is-sticky">
+    class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-1 column-left is-sticky">
     
     
 <div class="card widget">
@@ -366,34 +341,12 @@
 
     
     
-<div class="card widget" id="toc">
-    <div class="card-content">
-        <div class="menu">
-            <h3 class="menu-label">
-                目录
-            </h3>
-            <ul class="menu-list"><li>
-        <a class="is-flex" href="#题意">
-        <span class="has-mr-6">1</span>
-        <span>题意</span>
-        </a></li><li>
-        <a class="is-flex" href="#solution-1-DP">
-        <span class="has-mr-6">2</span>
-        <span>solution 1 DP</span>
-        </a></li><li>
-        <a class="is-flex" href="#solution-2-容斥定理">
-        <span class="has-mr-6">3</span>
-        <span>solution 2 容斥定理</span>
-        </a></li></ul>
-        </div>
-    </div>
-</div>
     
     
     <!-- <div class="column-right-shadow is-hidden-widescreen is-sticky"> -->
     <!-- post右侧不显示侧边栏 -->
     <div
-        class="column-right-shadow  is-sticky">
+        class="column-right-shadow is-hidden-widescreen is-sticky">
         <!-- ----- -->
         
         <div class="card widget">
@@ -618,6 +571,237 @@
                 <!-- ------新添加---- -->
                 
                 <!-- ------ -->
+                
+<!--  -->
+
+<!-- -----------------分界线 -->
+
+
+
+<div
+    class="column is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only has-order-3 column-right is-sticky">
+    
+    <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                标签
+            </h3>
+            <div class="field is-grouped is-grouped-multiline">
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/combinatorics/">
+                        <span class="tag">combinatorics</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/divide-and-conquer/">
+                        <span class="tag">divide and conquer</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/dp/">
+                        <span class="tag">dp</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/greedy/">
+                        <span class="tag">greedy</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/math/">
+                        <span class="tag">math</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+    
+    
+<div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                分类
+            </h3>
+            <ul class="menu-list">
+            <li>
+        <a class="level is-marginless" href="/categories/others/">
+            <span class="level-start">
+                <span class="level-item">others</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/solution/">
+            <span class="level-start">
+                <span class="level-item">solution</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">5</span>
+            </span>
+        </a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+    
+    <div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            标签云
+        </h3>
+        <a href="/tags/combinatorics/" style="font-size: 10px;">combinatorics</a> <a href="/tags/divide-and-conquer/" style="font-size: 10px;">divide and conquer</a> <a href="/tags/dp/" style="font-size: 20px;">dp</a> <a href="/tags/greedy/" style="font-size: 10px;">greedy</a> <a href="/tags/math/" style="font-size: 10px;">math</a>
+    </div>
+</div>
+    
+    <div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            最新文章
+        </h3>
+        
+        <article class="media">
+            
+            <a href="/post/Codeforces-1237-C2-Balanced-Removals/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/img/6.png" alt="Codeforces 1237 C2 Balanced Removals">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-10-23T12:56:26.000Z">2019-10-23</time></div>
+                    <a href="/post/Codeforces-1237-C2-Balanced-Removals/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Codeforces 1237 C2 Balanced Removals</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/solution/">solution</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/post/gym101889J-Jumping-frog/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/img/5.jpg" alt="gym101889J Jumping frog">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-10-13T14:21:47.000Z">2019-10-13</time></div>
+                    <a href="/post/gym101889J-Jumping-frog/" class="title has-link-black-ter is-size-6 has-text-weight-normal">gym101889J Jumping frog</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/solution/">solution</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/post/gym101889E-Enigma/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/img/4.jpg" alt="gym101889E Enigma">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-10-13T14:01:15.000Z">2019-10-13</time></div>
+                    <a href="/post/gym101889E-Enigma/" class="title has-link-black-ter is-size-6 has-text-weight-normal">gym101889E Enigma</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/solution/">solution</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/post/icarus主题配置/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/img/3.jpg" alt="icarus主题配置">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-10-12T12:23:43.000Z">2019-10-12</time></div>
+                    <a href="/post/icarus主题配置/" class="title has-link-black-ter is-size-6 has-text-weight-normal">icarus主题配置</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/others/">others</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/post/Codeforces-1228E-Another-Filling-the-Grid/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/img/1.jpg" alt="Codeforces 1228E Another Filling the Grid">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-10-10T11:39:56.000Z">2019-10-10</time></div>
+                    <a href="/post/Codeforces-1228E-Another-Filling-the-Grid/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Codeforces 1228E Another Filling the Grid</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/solution/">solution</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+    </div>
+</div>
+    
+    <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            归档
+        </h3>
+        <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/10/">
+                <span class="level-start">
+                    <span class="level-item">十月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">6</span>
+                </span>
+            </a>
+        </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+    
+    
+</div>
+
+                <!-- ------新添加---- -->
+                
+                <!-- ------ -->
             </div>
         </div>
     </section>
@@ -627,7 +811,7 @@
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/logo.svg" alt="Codeforces 1228E Another Filling the Grid" height="28">
+                    <img src="/images/logo.svg" alt="G&#39;s Blog" height="28">
                 
                 </a>
                 <p class="is-size-7">
